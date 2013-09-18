@@ -10,7 +10,12 @@
 
                         window.location.href = select_url;
                     } else {
-                        $(this).prev().val(ui.item.id);
+                        var prev = $(this).prev();
+                        // jQuery inserts these between searchify nodes
+                        if (prev.attr('class') == 'ui-helper-hidden-accessible') {
+                            prev = prev.prev();
+                        }
+                        prev.val(ui.item.id);
                         $(this).data('value', ui.item.id)
                         $(this).blur();
                         $(this).focus();
