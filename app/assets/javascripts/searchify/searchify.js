@@ -23,13 +23,17 @@
                 }
             });
 
-            $(this).change( function (event, ui) {
-                if ( $(this).prev().val() == '' || $(this).prev().val() != $(this).data('value') ) {
+            $(this).change( function () {
+                var prev = $(this).prev();
+                if (prev.attr('class') == 'ui-helper-hidden-accessible') {
+                    prev = prev.prev();
+                }
+                if (prev.val() == '' || prev.val() != $(this).data('value') ) {
                     $(this).val('');
-                    $(this).prev().val('');
+                    prev.val('');
                 }
             });
-            $(this).focus( function (event, ui) {
+            $(this).focus( function () {
                 $(this).data('value', '');
             });
         });
