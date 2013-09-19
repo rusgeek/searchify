@@ -34,7 +34,7 @@
                 }
             });
             $(this).focus( function () {
-                $(this).data('value', '');
+                //$(this).data('value', '');
             });
         });
     };
