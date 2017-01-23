@@ -1,3 +1,3 @@
 Searchify::Engine.routes.draw do
-  match '/search/:collection' => "searchify#search"
+  get '/search/:collection' => "searchify#search"
 end
